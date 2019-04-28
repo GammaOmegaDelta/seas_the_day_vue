@@ -1,10 +1,14 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import Home from './views/Home.vue';
-import ItinerariesIndex from './views/ItinerariesIndex.vue';
+// import ItinerariesIndex from './views/ItinerariesIndex.vue';
 import ItinerariesNew from './views/ItinerariesNew.vue';
 import ItinerariesShow from './views/ItinerariesShow.vue';
 import ItinerariesEdit from './views/ItinerariesEdit.vue';
+import ItinerariesDestroy from './views/ItinerariesDestroy.vue';
+import Signup from './views/Signup.vue';
+import Login from './views/Login.vue';
+import Logout from './views/Logout.vue';
 
 Vue.use(Router);
 
@@ -18,15 +22,30 @@ export default new Router({
       component: ItinerariesEdit
     },
     {
-      path: '/',
-      name: 'home',
-      component: Home
+      path: '/signup',
+      name: 'signup',
+      component: Signup
     },
     {
-      path: '/itineraries',
-      name: 'ItinerariesIndex',
-      component: ItinerariesIndex
+      path: '/login',
+      name: 'login',
+      component: Login
     },
+    {
+      path: '/',
+      name: 'home',
+      component: Home  //index route
+    },
+    {
+      path: '/logout',
+      name: 'logout',
+      component: Logout
+    },
+    // {
+    //   path: '/itineraries',
+    //   name: 'ItinerariesIndex',
+    //   component: ItinerariesIndex
+    // },
     {
       path: '/itineraries/new',
       name: 'ItinerariesNew',
@@ -36,6 +55,11 @@ export default new Router({
       path: '/itineraries/:id',
       name: 'ItinerariesShow',
       component: ItinerariesShow
+    },
+    {
+      path: '/itineraries/:id/destroy',
+      name: 'ItinerariesDestroy',
+      component: ItinerariesDestroy
     },
     {
       path: '/about',

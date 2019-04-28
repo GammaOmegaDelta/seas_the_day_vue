@@ -1,18 +1,39 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <u><h1>All Itineraries</h1></u>
+    <div v-for="itinerary in itineraries">
+      <h2>{{ itinerary.name }}</h2>
+      <img v-bind:src="itinerary.images[0].url">
+      <p>Name: {{ itinerary.name }}</p>
+      <p>Country: {{ itinerary.country }}</p>
+      <p>Category: {{ itinerary.category }}</p>
+      <p>Description: {{ itinerary.description }}</p>
+      <p>Address: {{ itinerary.address }}</p>
+    </div>
   </div>
 </template>
 
+<style>
+  img {
+    width: 500px;
+    height: 250;
+  }
+</style>
+
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import axios from "axios";
 
 export default {
-  name: 'home',
-  components: {
-    HelloWorld
-  }
-}
+  data: function() {
+    return {
+      itineraries: []
+    };
+  },
+  created: function() {
+    axios.get("/api/itineraries").then(response => {
+      this.itineraries = response.data;
+    });
+  },
+  methods: {}
+};
 </script>

@@ -1,4 +1,3 @@
-
 <template>
   <div class="container">
     <h1>New Itinerary</h1>

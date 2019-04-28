@@ -1,3 +1,4 @@
+
 <template>
   <div class="container">
     <h1>New Itinerary</h1>
@@ -9,7 +10,7 @@
       Address: <input type="text" v-model="newItineraryAddress">
       <button v-on:click="createItinerary()">Create Itinerary</button>
     </div>
-    <h1>All Itineraries</h1>
+    <h1>All Itinerariess</h1>
     <div v-for="itinerary in itineraries">
       <h2>{{ itinerary.name }}</h2>
       <img v-bind:src="itinerary.url">
@@ -17,7 +18,7 @@
       <div v-if="currentItinerary === itinerary">
         <p>Country: {{ itinerary.country }}</p>
         <p>Category: {{ itinerary.category }}</p>
-        <p>Decription: {{ itinerary.description }}</p>
+        <p>Description: {{ itinerary.description }}</p>
         <p>Address: {{ itinerary.address }}</p>
         <div>
           Name: <input type="text" v-model="itinerary.name">
@@ -26,6 +27,7 @@
           Description: <input type="text" v-model="itinerary.description">
           Address: <input type="text" v-model="itinerary.address">
           <button v-on:click="updateItinerary(itinerary)">Update Itinerary</button>
+          <button v-on:click="destroyItinerary(itinerary)">Destroy Itinerary</button>
         </div>
       </div>
     </div>
@@ -89,6 +91,14 @@ export default {
         .patch("/api/itineraries/" + itinerary.id, params)
         .then(response => {
           this.currentItinerary = {};
+        });
+    },
+    destroyItinerary: function(itinerary) {
+      axios
+        .delete("/api/itineraries/" + itinerary.id)
+        .then(response => {
+          var index = this.itineraries.indexOf(itinerary);
+          this.itineraries.splice(index, 1);
         });
     }
   }
