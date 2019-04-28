@@ -1,26 +1,13 @@
 <template>
-  <div class="container">
-    <h1>New Itinerary</h1>
-    <div>
-      Name: <input type="text" v-model="newItineraryName">
-      Country: <input type="text" v-model="newItineraryCountry">
-      Category: <input type="text" v-model="newItineraryCategory">
-      Description: <input type="text" v-model="newItineraryDescription">
-      Address: <input type="text" v-model="newItineraryAddress">
-      <button v-on:click="createItinerary()">Create Itinerary</button>
-    </div>
-    <h1>All Itineraries</h1>
-    <div v-for="itinerary in itineraries">
-      <h2>{{ itinerary.name }}</h2>
-      <img v-bind:src="itinerary.url">
-      <button v-on:click="showItinerary(itinerary)">Show more</button>
-      <div v-if="currentItinerary === itinerary">
-        <p>Country: {{ itinerary.country }}</p>
-        <p>Category: {{ itinerary.category }}</p>
-        <p>Description: {{ itinerary.description }}</p>
-        <p>Address: {{ itinerary.address }}</p>
-      </div>
-    </div>
+  <div class="root">
+    <h1>Show Itinerary</h1>
+      <b><p>{{ itinerary.country }}</p></b>
+      <u><b><p>{{ itinerary.name }}</p></b></u>
+      <img v-bind:src="itinerary.images[0].url">
+      <b><p>{{ itinerary.category }}</p></b>
+      <b><p>{{ itinerary.description }}</p></b>
+      <u><p>Address: {{ itinerary.address }}</p></u>
+      <!-- <router-link v-bind:to="'/itineraries/' + itinerary.id + '/edit'">Edit Itinerary</router-link> -->
   </div>
 </template>
 
@@ -30,46 +17,23 @@ import axios from "axios";
 export default {
   data: function() {
     return {
-      itineraries: [],
-      currentItinerary: {},
-      newItineraryName: "",
-      newItineraryCountry: "",
-      newItineraryCategory: "",
-      newItineraryDescription: "",
-      newItineraryAddress: "",
+      itinerary: {
+        name: "monkey park",
+        country: "japan",
+        image_url: "",
+        category: "day trip",
+        description: "hike up the mountains to see where the monkeys reside",
+        address: "arashiyma"
+      }
     };
   },
   created: function() {
-    axios.get("/api/itineraries").then(response => {
-      this.itineraries = response.data;
+    axios.get("/api/itineraries/" + this.$route.params.id).then(response => {
+      console.log(response.data);
+      this.itinerary = response.data;
     });
   },
-  methods: {
-    createItinerary: function() {
-      var params = {
-        name: this.newItineraryName,
-        country: this.newItineraryCountry,
-        category: this.newItineraryCategory,
-        description: this.newItineraryDescription,
-        address: this.newItineraryAddress,
-      };
-      axios.post("/api/itineraries", params).then(response => {
-        this.itineraries.push(response.data);
-        this.newItineraryName = "";
-        this.newItineraryCountry = "";
-        this.newItineraryCategory = "";
-        this.newItineraryDescription = "";
-        this.newItineraryAddress = "";
-      });
-    },
-    showItinerary: function(itinerary) {
-      if (this.currentItinerary === itinerary) {
-        this.currentItinerary = {};
-      } else {
-        this.currentItinerary = itinerary;
-      }
-    }
-  }
+  methods: {}
 };
 </script>
 

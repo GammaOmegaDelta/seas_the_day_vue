@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h1>New Itinerary</h1>
+    <h1>Edit Itinerary</h1>
     <div>
       Name: <input type="text" v-model="newItineraryName">
       Country: <input type="text" v-model="newItineraryCountry">

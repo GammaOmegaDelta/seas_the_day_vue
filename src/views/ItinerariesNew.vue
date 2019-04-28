@@ -11,12 +11,12 @@
     </div>
     <h1>All Itineraries</h1>
     <div v-for="itinerary in itineraries">
-      <h2>{{ itinerary.name }}</h2>
+      <u><h2>{{ itinerary.name }}</h2></u>
       <img v-bind:src="itinerary.images[0].url">
       <p>Country: {{ itinerary.country }}</p>
-      <p>Category: {{ itinerary.category }}</p>
-      <p>Description: {{ itinerary.description }}</p>
-      <p>Address: {{ itinerary.address }}</p>
+      <p>Category - {{ itinerary.category }}</p>
+      <p>{{ itinerary.description }}</p>
+      <u><p>Address: {{ itinerary.address }}</p></u>
     </div>
   </div>
 </template>
