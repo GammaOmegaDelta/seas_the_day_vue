@@ -1,32 +1,18 @@
 <template>
-  <div class="container">
-    <h1>New Itinerary</h1>
-    <div>
-      Name: <input type="text" v-model="newItineraryName">
-      Category: <input type="text" v-model="newItineraryCategory">
-      Country: <input type="text" v-model="newItineraryCountry">
-      Description: <input type="text" v-model="newItineraryDescription">
-      Address: <input type="text" v-model="newItineraryAddresss">
-      <button v-on:click="createItinerary()">Create Itinerary</button>
-    </div>
-    <h1>All Itineraries</h1>
-    <div v-for="itinerary in itineraries">
-      <u><h2>{{ itinerary.name }}</h2></u>
-      <img v-bind:src="itinerary.images[0].url">
-      <p>Country: {{ itinerary.country }}</p>
-      <p>Category - {{ itinerary.category }}</p>
-      <p>{{ itinerary.description }}</p>
-      <u><p>Address: {{ itinerary.address }}</p></u>
-    </div>
+  <div class="root">
+    New Page
+    {{ errors }}
+    <form v-on:submit.prevent="makeItinerary()">
+      <p>Name: <input type="text" v-model="newItineraryName"></p>
+      <p>Country: <input type="text" v-model="newItineraryCountry"></p>
+      <p>Category: <input type="text" v-model="newItineraryCategory"></p>
+      <p>Description: <input type="text" v-model="newItineraryDescription"></p>
+      <p>Address: <input type="text" v-model="newItineraryAddress"></p>
+      <input type="submit" value="Make a new itinerary">
+      <!-- <button>Make a new itinerary</button> -->
+  </form>
   </div>
 </template>
-
-<style>
-  img {
-    width: 500px;
-    height: 250;
-  }
-</style>
 
 <script>
 import axios from "axios";
@@ -34,35 +20,33 @@ import axios from "axios";
 export default {
   data: function() {
     return {
-      itineraries: [],
       newItineraryName: "",
       newItineraryCountry: "",
       newItineraryCategory: "",
       newItineraryDescription: "",
-      newItineraryAddresss: "",
+      newItineraryAddress: ""
     };
   },
-  created: function() {
-    axios.get("/api/itineraries").then(response => {
-      this.itineraries = response.data;
-    });
-  },
+  created: function() {},
   methods: {
-    createItinerary: function() {
+    makeItinerary: function() {
+      console.log('making new itinerary');
       var params = {
         name: this.newItineraryName,
         country: this.newItineraryCountry,
         category: this.newItineraryCategory,
         description: this.newItineraryDescription,
-        address: this.newItineraryAddress,
+        address: this.newItineraryAddress
       };
+
       axios.post("/api/itineraries", params).then(response => {
-        this.itineraries.push(response.data);
-        this.newItineraryName = "";
-        this.newItineraryCountry = "";
-        this.newItineraryCategory = "";
-        this.newItineraryDescription = "";
-        this.newItineraryAddress = "";
+        console.log('run smoothly');
+        console.log(response);
+        this.$router.push("/");
+      }).catch(error => {
+        console.log('not so smoothly');
+        console.log(error.response.data.errors);
+        this.errors = error.response.data.errors;
       });
     }
   }

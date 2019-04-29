@@ -1,35 +1,21 @@
 <template>
-  <div class="container">
-    <h1>Edit Itinerary</h1>
-    <div>
-      Name: <input type="text" v-model="newItineraryName">
-      Country: <input type="text" v-model="newItineraryCountry">
-      Category: <input type="text" v-model="newItineraryCategory">
-      Description: <input type="text" v-model="newItineraryDescription">
-      Address: <input type="text" v-model="newItineraryAddress">
-      <button v-on:click="createItinerary()">Create Itinerary</button>
+  <div class="root">
+    Edit Page
+    <div v-for="error in errors">
+      {{ error }}
     </div>
-    <h1>All Itineraries</h1>
-    <div v-for="itinerary in itineraries">
-      <h2>{{ itinerary.name }}</h2>
-      <img v-bind:src="itinerary.url">
-      <button v-on:click="showItinerary(itinerary)">Show more</button>
-      <div v-if="currentItinerary === itinerary">
-        <p>Country: {{ itinerary.country }}</p>
-        <p>Category: {{ itinerary.category }}</p>
-        <p>Decription: {{ itinerary.description }}</p>
-        <p>Address: {{ itinerary.address }}</p>
-        <div>
-          Name: <input type="text" v-model="itinerary.name">
-          Country: <input type="text" v-model="itinerary.country">
-          Category: <input type="text" v-model="itinerary.category">
-          Description: <input type="text" v-model="itinerary.description">
-          Address: <input type="text" v-model="itinerary.address">
-          <button v-on:click="updateItinerary(itinerary)">Update Itinerary</button>
-        </div>
-      </div>
-    </div>
-  </div>
+
+    <form v-on:submit.prevent="updateItinerary()">
+     <p>Name: <input type="text" v-model="itinerary.name"></p>
+     <p>Country: <input type="text" v-model="itinerary.country"></p>
+     <p>Category: <input type="text" v-model="itinerary.category"></p>
+     <p>Description: <input type="text" v-model="itinerary.description"></p>
+     <p>Address: <input type="text" v-model="itinerary.address"></p>
+     <p>Image Url: <input type="text" v-model="itinerary.image_url"></p>
+     <input type="submit" value="Update Itinerary">
+   </form>
+   <button v-on:click="deleteItinerary()">Delete Iti9nerary</button>
+ </div>
 </template>
 
 <script>
@@ -38,58 +24,50 @@ import axios from "axios";
 export default {
   data: function() {
     return {
-      itineraries: [],
-      currentItinerary: {},
-      newItineraryName: "",
-      newItineraryCountry: "",
-      newItineraryCategory: "",
-      newItineraryDescription: "",
-      newItineraryAddress: "",
+      itinerary: {
+        name: "",
+        country: "",
+        category: "",
+        description: "",
+        address: "",
+      },
+      errors: []
     };
   },
   created: function() {
-    axios.get("/api/itineraries").then(response => {
-      this.itineraries = response.data;
+    axios.get("/api/itineraries/" + this.$route.params.id).then(response => {
+      console.log(response.data);
+      this.itinerary = response.data;
     });
   },
   methods: {
-    createItinerary: function() {
+    updateItinerary: function() {
+      console.log('making new itinerary');
       var params = {
-        name: this.newItineraryName,
-        country: this.newItineraryCountry,
-        category: this.newItineraryCategory,
-        description: this.newItineraryDescription,
-        address: this.newItineraryAddress,
+        name: this.itinerary.name,
+        country: this.itinerary.country,
+        category: this.itinerary.category,
+        description: this.itinerary.description,
+        address: this.itinerary.address
       };
-      axios.post("/api/itineraries", params).then(response => {
-        this.itineraries.push(response.data);
-        this.newItineraryName = "";
-        this.newItineraryCountry = "";
-        this.newItineraryCategory = "";
-        this.newItineraryDescription = "";
-        this.newItineraryAddress = "";
+
+      console.log(params);
+
+      axios.patch("/api/itineraries/" + this.$route.params.id, params).then(response => {
+        console.log('run smoothly');
+        console.log(response);
+        this.$router.push("/itineraries/" + this.$route.params.id, params);
+      }).catch(error => {
+        console.log('not so smoothly');
+        console.log(error.response.data.errors);
+        this.errors = error.response.data.errors;
       });
     },
-    showItinerary: function(itinerary) {
-      if (this.currentItinerary === itinerary) {
-        this.currentItinerary = {};
-      } else {
-        this.currentItinerary = itinerary;
-      }
-    },
-    updateItinerary: function(itinerary) {
-      var params = {
-        name: itinerary.name,
-        country: itinerary.country,
-        category: itinerary.category,
-        description: itinerary.description,
-        address: itinerary.address,
-      };
-      axios
-        .patch("/api/itineraries/" + itinerary.id, params)
-        .then(response => {
-          this.currentItinerary = {};
-        });
+    deleteItineray: function() {
+      console.log('deleting itinerary');
+      axios.delete("/api/itineraries/" + this.$route.params.id).then(response => {
+        this.$router.push("/");
+      });
     }
   }
 };

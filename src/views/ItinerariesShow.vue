@@ -7,7 +7,7 @@
       <b><p>{{ itinerary.category }}</p></b>
       <b><p>{{ itinerary.description }}</p></b>
       <u><p>Address: {{ itinerary.address }}</p></u>
-      <!-- <router-link v-bind:to="'/itineraries/' + itinerary.id + '/edit'">Edit Itinerary</router-link> -->
+      <router-link v-bind:to="'/itineraries/' + itinerary.id + '/edit'">Edit Itinerary</router-link> -->
   </div>
 </template>
 
@@ -36,5 +36,3 @@ export default {
   methods: {}
 };
 </script>
-
-
