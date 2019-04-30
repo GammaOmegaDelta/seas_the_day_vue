@@ -1,14 +1,13 @@
 <template>
   <div class="home">
-    <u><h1>All Itineraries</h1></u>
-    <div v-for="itinerary in itineraries">
-      <h2>{{ itinerary.name }}</h2>
-      <img v-bind:src="itinerary.images[0].url">
-      <p>Country: {{ itinerary.country }}</p>
-      <p>Category: {{ itinerary.category }}</p>
-      <p>Description: {{ itinerary.description }}</p>
-      <u><p>Address: {{ itinerary.address }}</p></u>
-      <router-link v-bind:to="'/itineraries/' + itinerary.id">See more info</router-link>
+    <u><h1>All Activities</h1></u>
+    <div v-for="activity in activities">
+      <h2>{{ activity.name }}</h2>
+      <img v-bind:src="activity.image_url[0]">
+      <b><p>Country - {{ activity.country }}</p></b>
+      <router-link v-bind:to="'/activities/' + activity.id">See more info</router-link>      
+      <p>Description: {{ activity.description }}</p>
+      <u><p>Address: {{ activity.address }}</p></u>
       <hr>
     </div>
   </div>
@@ -27,12 +26,12 @@ import axios from "axios";
 export default {
   data: function() {
     return {
-      itineraries: []
+      activities: []
     };
   },
   created: function() {
-    axios.get("/api/itineraries").then(response => {
-      this.itineraries = response.data;
+    axios.get("/api/activities").then(response => {
+      this.activities = response.data;
     });
   },
   methods: {}

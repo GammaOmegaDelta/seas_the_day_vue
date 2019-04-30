@@ -1,9 +1,9 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import Home from './views/Home.vue';
-import ItinerariesNew from './views/ItinerariesNew.vue';
-import ItinerariesShow from './views/ItinerariesShow.vue';
-import ItinerariesEdit from './views/ItinerariesEdit.vue';
+import ActivitiesNew from './views/ActivitiesNew.vue';
+import ActivitiesShow from './views/ActivitiesShow.vue';
+import ActivitiesEdit from './views/ActivitiesEdit.vue';
 import Signup from './views/Signup.vue';
 import Login from './views/Login.vue';
 import Logout from './views/Logout.vue';
@@ -15,9 +15,9 @@ export default new Router({
   base: process.env.BASE_URL,
   routes: [
     {
-      path: '/itineraries/:id/edit',
-      name: 'ItinerariesEdit',
-      component: ItinerariesEdit
+      path: '/activities/:id/edit',
+      name: 'ActivitiesEdit',
+      component: ActivitiesEdit
     },
     {
       path: '/signup',
@@ -30,14 +30,14 @@ export default new Router({
       component: Login
     },
     {
-      path: '/itineraries/new',
-      name: 'ItinerariesNew',
-      component: ItinerariesNew
+      path: '/activities/new',
+      name: 'ActivitiesNew',
+      component: ActivitiesNew
     },
     {
-      path: '/itineraries/:id',
-      name: 'ItinerariesShow',
-      component: ItinerariesShow
+      path: '/activities/:id',
+      name: 'ActivitiesShow', 
+      component: ActivitiesShow 
     },
     {
       path: '/',
