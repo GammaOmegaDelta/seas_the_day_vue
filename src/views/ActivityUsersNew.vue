@@ -1,7 +1,10 @@
-F<template>
+<template>
   <div class="root">
     New Page
-    {{ errors }}
+    <div v-for="error in errors">
+      {{ error }}
+    </div>
+    
     <form v-on:submit.prevent="makeActivity()">
       <p>Name: <input type="text" v-model="newActivityName"></p>
       <p>Country: <input type="text" v-model="newActivityCountry"></p>
