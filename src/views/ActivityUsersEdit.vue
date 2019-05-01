@@ -1,4 +1,4 @@
-<!-- <template>
+<template>
   <div class="root">
     Edit Page
     <div v-for="error in errors">
@@ -63,10 +63,10 @@ export default {
     },
     deleteActivity: function() {
       console.log('deleting activity');
-      axios.delete("/api/activities/" + this.$route.params.id).then(response => {
+      axios.delete("/api/activity_users/" + this.$route.params.id).then(response => {
         this.$router.push("/");
       });
     }
   }
 };
-</script> -->
+</script>

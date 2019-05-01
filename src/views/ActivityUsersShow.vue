@@ -30,7 +30,7 @@ export default {
     };
   },
   created: function() {
-    axios.get("/api/activities").then(response => {
+    axios.get("/api/activity_users").then(response => {
       this.activities = response.data;
     });
   },

@@ -1,9 +1,13 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import Home from './views/Home.vue';
-import ActivitiesNew from './views/ActivitiesNew.vue';
+import ActivityUsersIndex from './views/ActivityUsersIndex.vue';
+// import ActivitiesNew from './views/ActivitiesNew.vue';
+import ActivityUsersNew from './views/ActivityUsersNew.vue';
+import ActivityUsersShow from './views/ActivityUsersShow.vue';
 import ActivitiesShow from './views/ActivitiesShow.vue';
-import ActivitiesEdit from './views/ActivitiesEdit.vue';
+import ActivityUsersEdit from './views/ActivityUsersEdit.vue';
+// import ActivitiesEdit from './views/ActivitiesEdit.vue';
 import Signup from './views/Signup.vue';
 import Login from './views/Login.vue';
 import Logout from './views/Logout.vue';
@@ -15,10 +19,15 @@ export default new Router({
   base: process.env.BASE_URL,
   routes: [
     {
-      path: '/activities/:id/edit',
-      name: 'ActivitiesEdit',
-      component: ActivitiesEdit
+      path: '/activityusers/:id/edit',
+      name: 'ActivityUsersEdit',
+      component: ActivityUsersEdit
     },
+    // {
+    //   path: '/activities/:id/edit',
+    //   name: 'ActivitiesEdit',
+    //   component: ActivitiesEdit
+    // },
     {
       path: '/signup',
       name: 'signup',
@@ -30,14 +39,29 @@ export default new Router({
       component: Login
     },
     {
-      path: '/activities/new',
-      name: 'ActivitiesNew',
-      component: ActivitiesNew
+      path: '/activityusers/new',
+      name: 'ActivityUsers',
+      component: ActivityUsersNew
     },
+    // {
+    //   path: '/activities/new',
+    //   name: 'ActivitiesNew',
+    //   component: ActivitiesNew
+    // },
     {
       path: '/activities/:id',
       name: 'ActivitiesShow', 
       component: ActivitiesShow 
+    },
+    {
+      path: '/activityusers/:id',
+      name: 'ActivityUsersShow', 
+      component: ActivityUsersShow 
+    },
+    {
+      path: '/activityusersindex',
+      name: 'ActivityUsersIndex',
+      component: ActivityUsersIndex
     },
     {
       path: '/',

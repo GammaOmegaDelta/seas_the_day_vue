@@ -1,6 +1,6 @@
 <template>
-  <div class="home">
-    <u><h1>All Activities</h1></u>
+  <div class="usersindex">
+    <u><h1>All Your Activities</h1></u>
     <div v-for="activity in activities">
       <h2>{{ activity.name }}</h2>
       <img v-bind:src="activity.image_url">
@@ -26,11 +26,11 @@ import axios from "axios";
 export default {
   data: function() {
     return {
-      activities: []
+      activity_users: []
     };
   },
   created: function() {
-    axios.get("/api/activities").then(response => {
+    axios.get("/api/activity_users").then(response => {
       this.activities = response.data;
     });
   },

@@ -1,15 +1,15 @@
-<!-- <template>
+F<template>
   <div class="root">
     New Page
     {{ errors }}
-    <form v-on:submit.prevent="makeActivityUsers()">
+    <form v-on:submit.prevent="makeActivity()">
       <p>Name: <input type="text" v-model="newActivityName"></p>
       <p>Country: <input type="text" v-model="newActivityCountry"></p>
       <p>Description: <input type="text" v-model="newActivityDescription"></p>
-      <p>Address: <input type="text" v-model="newActivityAddress"></p> -->
-<!--       <input type="submit" value="Make a new activity"> -->
+      <p>Address: <input type="text" v-model="newActivityAddress"></p>
+      <input type="submit" value="Make a new activity">
       <!-- <button>Make a new activity</button> -->
- <!--  </form>
+  </form>
   </div>
 </template>
 
@@ -27,7 +27,7 @@ export default {
   },
   created: function() {},
   methods: {
-    makeActivityUsers: function() {
+    makeActivity: function() {
       console.log('making new activity');
       var params = {
         name: this.newActivityName,
@@ -48,6 +48,4 @@ export default {
     }
   }
 };
-</script> -->
-
-<!-- Will be using Activity_usersNew///Need to make admin to be the only one editing/deleting activities. -->
+</script>
