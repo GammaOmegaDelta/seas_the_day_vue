@@ -10,7 +10,8 @@
       <p>Country: <input type="text" v-model="newActivityCountry"></p>
       <p>Description: <input type="text" v-model="newActivityDescription"></p>
       <p>Address: <input type="text" v-model="newActivityAddress"></p>
-      <input type="submit" value="Make a new activity">
+      <input type="submit" value="Make A New Itinerary">
+      <button v-on:click="deleteActivity()">Delete An Itinerary/Activity</button>
       <!-- <button>Make a new activity</button> -->
   </form>
   </div>
@@ -47,6 +48,12 @@ export default {
         console.log('not so smoothly');
         console.log(error.response.data.errors);
         this.errors = error.response.data.errors;
+      });
+    },
+    deleteActivity: function() {
+      console.log('deleting activity');
+      axios.delete("/api/activities/" + this.$route.params.id).then(response => {
+        this.$router.push("/");
       });
     }
   }

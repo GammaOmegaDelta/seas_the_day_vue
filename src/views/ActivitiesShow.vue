@@ -7,6 +7,7 @@
       <img v-bind:src="activity.image_url">
       <b><p>{{ activity.description }}</p></b>
       <u><b><p>Address: {{ activity.address }}</p></b></u>
+      <!-- below, only admin can edit/delete/update an activity within the home pg. Work in Progress-->
       <router-link v-bind:to="'/activities/' + activity.id + '/edit'">Edit Activity</router-link> -->
   </div>
 </template>
@@ -18,12 +19,11 @@ export default {
   data: function() {
     return {
       activity: {
-        name: "monkey park",
-        country: "japan",
+        name: "",
+        country: "",
         image_url: "",
-        category: "day trip",
-        description: "hike up the mountains to see where the monkeys reside",
-        address: "arashiyma"
+        description: "",
+        address: ""
       }
     };
   },

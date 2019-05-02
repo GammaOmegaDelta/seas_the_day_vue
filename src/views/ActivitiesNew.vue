@@ -6,10 +6,10 @@
       <p>Name: <input type="text" v-model="newActivityName"></p>
       <p>Country: <input type="text" v-model="newActivityCountry"></p>
       <p>Description: <input type="text" v-model="newActivityDescription"></p>
-      <p>Address: <input type="text" v-model="newActivityAddress"></p> -->
+      <p>Address: <input type="text" v-model="newActivityAddress"></p> --> -->
 <!--       <input type="submit" value="Make a new activity"> -->
       <!-- <button>Make a new activity</button> -->
- <!--  </form>
+<!--   </form>
   </div>
 </template>
 
@@ -48,6 +48,6 @@ export default {
     }
   }
 };
-</script> -->
-
-<!-- Will be using Activity_usersNew///Need to make admin to be the only one editing/deleting activities. -->
+</script>
+ -->
+ <!-- Will be using Activity_usersNew///Need to make admin to be the only one editing/deleting activities. -->

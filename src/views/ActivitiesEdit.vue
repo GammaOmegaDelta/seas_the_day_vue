@@ -1,4 +1,5 @@
-<!-- <template>
+<!-- only admin allowed to edit/delete/update activities within home page. User can do the same within their itinerary.wip -->
+<template>
   <div class="root">
     Edit Page
     <div v-for="error in errors">
@@ -8,7 +9,6 @@
     <form v-on:submit.prevent="updateActivity()">
      <p>Name: <input type="text" v-model="activity.name"></p>
      <p>Country: <input type="text" v-model="activity.country"></p>
-     <p>Category: <input type="text" v-model="activity.category"></p>
      <p>Description: <input type="text" v-model="activity.description"></p>
      <p>Address: <input type="text" v-model="activity.address"></p>
      <p>Image Url: <input type="text" v-model="activity.image_url"></p>
@@ -69,4 +69,4 @@ export default {
     }
   }
 };
-</script> -->
+</script>

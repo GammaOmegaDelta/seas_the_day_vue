@@ -7,7 +7,7 @@ import ActivityUsersNew from './views/ActivityUsersNew.vue';
 import ActivityUsersShow from './views/ActivityUsersShow.vue';
 import ActivitiesShow from './views/ActivitiesShow.vue';
 import ActivityUsersEdit from './views/ActivityUsersEdit.vue';
-// import ActivitiesEdit from './views/ActivitiesEdit.vue';
+import ActivitiesEdit from './views/ActivitiesEdit.vue';
 import Signup from './views/Signup.vue';
 import Login from './views/Login.vue';
 import Logout from './views/Logout.vue';
@@ -23,11 +23,11 @@ export default new Router({
       name: 'ActivityUsersEdit',
       component: ActivityUsersEdit
     },
-    // {
-    //   path: '/activities/:id/edit',
-    //   name: 'ActivitiesEdit',
-    //   component: ActivitiesEdit
-    // },
+    {
+      path: '/activities/:id/edit',
+      name: 'ActivitiesEdit',
+      component: ActivitiesEdit
+    },
     {
       path: '/signup',
       name: 'signup',
