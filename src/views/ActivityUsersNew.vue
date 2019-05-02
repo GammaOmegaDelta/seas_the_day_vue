@@ -6,11 +6,8 @@
     </div>
     
     <form v-on:submit.prevent="makeActivity()">
-      <p>Name: <input type="text" v-model="newActivityName"></p>
-      <p>Country: <input type="text" v-model="newActivityCountry"></p>
-      <p>Description: <input type="text" v-model="newActivityDescription"></p>
-      <p>Address: <input type="text" v-model="newActivityAddress"></p>
-      <input type="submit" value="Make A New Itinerary">
+      <p>ActivityID: <input type="text" v-model="newActivityID"></p>
+      <input type="submit" value="Make A New" Activity>
       <button v-on:click="deleteActivity()">Delete An Itinerary/Activity</button>
       <!-- <button>Make a new activity</button> -->
   </form>
@@ -23,10 +20,7 @@ import axios from "axios";
 export default {
   data: function() {
     return {
-      newActivityName: "",
-      newActivityCountry: "",
-      newActivityDescription: "",
-      newActivityAddress: ""
+      newActivityID: "",
     };
   },
   created: function() {},
@@ -34,12 +28,8 @@ export default {
     makeActivity: function() {
       console.log('making new activity');
       var params = {
-        name: this.newActivityName,
-        country: this.newActivityCountry,
-        description: this.newActivityDescription,
-        address: this.newActivityAddress
+        activity_id: 50
       };
-
       axios.post("/api/activity_users", params).then(response => {
         console.log('run smoothly');
         console.log(response);
