@@ -1,13 +1,13 @@
 <template>
   <div class="root">
-    New Page
+    Add New Activity
     <div v-for="error in errors">
       {{ error }}
     </div>
     
     <form v-on:submit.prevent="makeActivity()">
       <p>ActivityID: <input type="text" v-model="newActivityID"></p>
-      <input type="submit" value="Make A New" Activity>
+      <input type="submit" value="Add An Activity" Activity>
       <button v-on:click="deleteActivity()">Delete An Itinerary/Activity</button>
       <!-- <button>Make a new activity</button> -->
   </form>
@@ -21,6 +21,7 @@ export default {
   data: function() {
     return {
       newActivityID: "",
+      errors: []
     };
   },
   created: function() {},
@@ -28,7 +29,7 @@ export default {
     makeActivity: function() {
       console.log('making new activity');
       var params = {
-        activity_id: 50
+        activity_id: this.newActivityID
       };
       axios.post("/api/activity_users", params).then(response => {
         console.log('run smoothly');

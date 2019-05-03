@@ -26,7 +26,7 @@ import axios from "axios";
 export default {
   data: function() {
     return {
-      activity_users: []
+      activity_users: [],
     };
   },
   created: function() {
