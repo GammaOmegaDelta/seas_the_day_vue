@@ -3,9 +3,9 @@
     <u><h1>All Activities</h1></u>
     <div v-for="activity in activities">
       <h2>{{ activity.name }}</h2>
-      <img v-bind:src="activity.image_url">
-      <b><p>Country - {{ activity.country }}</p></b>
-      <router-link v-bind:to="'/activities/' + activity.id">See more info</router-link>      
+      <b><p>{{ activity.country }}</p></b> 
+      <img v-bind:src="activity.image_url">   
+      <router-link v-bind:to="'/activities/' + activity.id">See more info</router-link>
       <!-- <p>Description: {{ activity.description }}</p>
       <u><p>Address: {{ activity.address }}</p></u> -->
       <hr>
