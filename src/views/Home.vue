@@ -23,7 +23,7 @@
         <div class="portfolio">
             <div class="no-padding portfolio_container">
                 <div class="col-md-3 col-sm-6 fashion logo">
-                    <a href="single-project.html" class="portfolio_item">
+                    <a href="/activities/2" class="portfolio_item">
                         <img src="https://i.imgur.com/DH8mqgJ.jpg" alt="image" class="img-responsive" />
                         <div class="portfolio_item_hover">
                             <div class="portfolio-border clearfix">

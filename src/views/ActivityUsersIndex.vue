@@ -9,6 +9,7 @@
       <!-- <router-link v-bind:to="'/activities/' + activity.id">See more info</router-link>       -->
       <p>{{ activity.activity.description }}</p>
       <u><p>Address: {{ activity.activity.address }}</p></u>
+      <button v-on:click="deleteActivity()">Delete Activity</button>
       <hr>
     </div>
   </div>
@@ -40,15 +41,21 @@ export default {
       console.log(this.activity_users);
       this.name = response.data;
       console.log(this.name);
-      this.image_url = response.data.activity.image_url;
+      // this.image_url = response.data.activity.image_url;
       console.log(this.image_url);
-      this.country = response.data.activity.country;
+      // this.country = response.data.activity.country;
       console.log(this.country);
-      this.description = response.data.activity.description;
+      // this.description = response.data.activity.description;
       console.log(this.description);
-      this.address = response.data.activity.address;
+      // this.address = response.data.activity.address;
       console.log(this.address);
     });
   },
+  deleteActivity: function() {
+    console.log('deleting activity');
+    axios.delete("/api/activity/:id/" + this.$route.params.id).then(response => {
+      this.$router.push("/");
+    });
+  }
 };
 </script>
