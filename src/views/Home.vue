@@ -50,7 +50,7 @@
                     </a>
                 </div>
 
-                <div class="col-md-6 col-sm-12 photography">
+                <div class="col-md-3 col-sm-6 fashion logo">
                     <a href="/activities/4" class="portfolio_item">
                         <img src="https://i.imgur.com/355JktA.jpg" alt="image" class="img-responsive" />
                         <div class="portfolio_item_hover">
@@ -92,7 +92,7 @@
                     </a>
                 </div>
 
-                <div class="col-md-6 col-sm-12 photography">
+                <div class="col-md-3 col-sm-6 fashion logo">
                     <a href="/activities/7" class="portfolio_item">
                         <img src="https://thecitylane.com/wp-content/uploads/2014/09/DSCF2968.jpg" alt="image" class="img-responsive" />
                         <div class="portfolio_item_hover">
@@ -190,7 +190,7 @@
                     </a>
                 </div>
 
-                <div class="col-md-6 col-sm-12 photography">
+                <div class="col-md-3 col-sm-6 fashion logo">
                     <a href="/activities/14" class="portfolio_item">
                         <img src="https://media-cdn.tripadvisor.com/media/photo-s/06/fc/44/cf/caption.jpg" alt="image" class="img-responsive" />
                         <div class="portfolio_item_hover">
@@ -232,7 +232,7 @@
                     </a>
                 </div>
 
-               <div class="col-md-6 col-sm-12 photography">
+               <div class="col-md-3 col-sm-6 fashion logo">
                     <a href="/activities/17" class="portfolio_item">
                         <img src="http://buffalotrip.com/image/data/2016/Kyoto-2/Experience-the-Edo-Period-at-Toei-Kyoto-Studio-Park-Toei-Uzumasa-Eigamura/show-Experience-the-Edo-Period-at-Toei-Eigamura-kyoto-travel-guide.jpg" alt="image" class="img-responsive" />
                         <div class="portfolio_item_hover">
@@ -330,7 +330,7 @@
                     </a>
                 </div>
 
-                <div class="col-md-6 col-sm-12 photography">
+                <div class="col-md-3 col-sm-6 fashion logo">
                     <a href="/activities/24" class="portfolio_item">
                         <img src="https://www.justgola.com/media/a/00/01/7758_og_1.jpeg" alt="image" class="img-responsive" />
                         <div class="portfolio_item_hover">
@@ -372,7 +372,7 @@
                     </a>
                 </div>
 
-                <div class="col-md-6 col-sm-12 photography">
+                <div class="col-md-3 col-sm-6 fashion logo">
                     <a href="/activities/27" class="portfolio_item">
                         <img src="https://www.hepfive.jp/language/images/top/lgg_img_info.jpg" alt="image" class="img-responsive" />
                         <div class="portfolio_item_hover">
@@ -470,7 +470,7 @@
                     </a>
                 </div>
 
-                 <div class="col-md-6 col-sm-12 photography">
+                 <div class="col-md-3 col-sm-6 fashion logo">
                     <a href="/activities/34" class="portfolio_item">
                         <img src="https://i.redd.it/ucugid2x8hm21.jpg" alt="image" class="img-responsive" />
                         <div class="portfolio_item_hover">
@@ -512,7 +512,7 @@
                     </a>
                 </div>
 
-                <div class="col-md-6 col-sm-12 photography">
+                <div class="col-md-3 col-sm-6 fashion logo">
                     <a href="/activities/37" class="portfolio_item">
                         <img src="http://www.tokyo-whisky-library.com/en/assets/images/main00.png" alt="image" class="img-responsive" />
                         <div class="portfolio_item_hover">
@@ -596,7 +596,7 @@
                     </a>
                 </div>
 
-                <div class="col-md-6 col-sm-12 photography">
+                <div class="col-md-3 col-sm-6 fashion logo">
                     <a href="/activities/43" class="portfolio_item">
                         <img src="https://media.timeout.com/images/103394803/630/472/image.jpg" alt="image" class="img-responsive" />
                         <div class="portfolio_item_hover">
@@ -638,7 +638,7 @@
                     </a>
                 </div>
 
-                <div class="col-md-6 col-sm-12 photography">
+                <div class="col-md-3 col-sm-6 fashion logo">
                     <a href="/activities/46" class="portfolio_item">
                         <img src="https://i.redd.it/s5fqnh894qn01.jpg" alt="image" class="img-responsive" />
                         <div class="portfolio_item_hover">
@@ -736,7 +736,7 @@
                     </a>
                 </div>
 
-                <div class="col-md-6 col-sm-12 graphics ads">
+                <div class="col-md-3 col-sm-6 fashion logo">
                     <a href="/activities/53" class="portfolio_item">
                         <img src="https://i.imgur.com/mOypxDt.jpg" alt="image" class="img-responsive" />
                         <div class="portfolio_item_hover">
@@ -778,7 +778,7 @@
                     </a>
                 </div>
 
-                <div class="col-md-6 col-sm-12 photography">
+                <div class="col-md-3 col-sm-6 fashion logo">
                     <a href="/activities/56" class="portfolio_item">
                         <img src="https://i.redd.it/5ojcbi5rktr21.jpg" alt="image" class="img-responsive" />
                         <div class="portfolio_item_hover">

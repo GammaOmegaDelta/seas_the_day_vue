@@ -9,7 +9,7 @@
       <!-- <router-link v-bind:to="'/activities/' + activity.id">See more info</router-link>       -->
       <p>{{ activity.activity.description }}</p>
       <u><p>Address: {{ activity.activity.address }}</p></u>
-      <button v-on:click="deleteActivity()">Delete Activity</button>
+      <button v-on:click="deleteActivity(activity)">Delete Activity</button>
       <hr>
     </div>
   </div>
@@ -51,11 +51,13 @@ export default {
       console.log(this.address);
     });
   },
-  deleteActivity: function() {
-    console.log('deleting activity');
-    axios.delete("/api/activity/:id/" + this.params.id).then(response => {
-      this.$router.push("/");
-    });
+  methods: {
+    deleteActivity: function(activity) {
+      console.log('deleting activity');
+      axios.delete("/api/activity_users/" + activity.id).then(response => {
+        this.$router.push("/activityusersindex");
+      });
+    }
   }
 };
 </script>
