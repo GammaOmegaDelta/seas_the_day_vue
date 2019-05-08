@@ -53,7 +53,7 @@ export default {
   },
   deleteActivity: function() {
     console.log('deleting activity');
-    axios.delete("/api/activity/:id/" + this.$route.params.id).then(response => {
+    axios.delete("/api/activity/:id/" + this.params.id).then(response => {
       this.$router.push("/");
     });
   }
