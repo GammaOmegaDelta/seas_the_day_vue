@@ -55,7 +55,8 @@ export default {
     deleteActivity: function(activity) {
       console.log('deleting activity');
       axios.delete("/api/activity_users/" + activity.id).then(response => {
-        this.$router.push("/activityusersindex");
+        var index = this.activity_users.indexOf(activity);
+        this.activity_users.splice(index, 1);
       });
     }
   }
