@@ -42,10 +42,10 @@ export default {
   },
   methods: {
     showActivityUsers: function(ActivityUsers) {
-      if (this.currentActivityUsers === activity_users) {
+      if (this.currentActivityUsers === ActivityUsers) {
         this.currentActivityUsers = {};
       } else {
-        this.currentActivityUsers = activity_users;
+        this.currentActivityUsers = ActivityUsers;
       }
     }
   }
